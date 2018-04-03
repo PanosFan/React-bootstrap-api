@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Form from '../../Forms/Form';
 
+import './Omdb.css';
+
 class Omdb extends Component {
 
 
@@ -70,7 +72,7 @@ class Omdb extends Component {
 			<div className="Omdb container-fluid">
 				<div className="row">
 					<div className="col-sm-6">
-						<Form callApi={this.callApi} placeholder="Movie"/>
+						<Form callApi={this.callApi} placeholder1="Movie" classCall="no-display"/>
 						{this.state.title && <p className="error">Title: <span className="apiSpan">{this.state.title}</span></p>}
 						{this.state.actors && <p className="error">Actors: <span className="apiSpan">{this.state.actors}</span></p>}
 						{this.state.country && <p className="error">Country: <span className="apiSpan">{this.state.country}</span></p>}
@@ -81,7 +83,7 @@ class Omdb extends Component {
 
 				<ol>
 					{this.state.ratings.map((rating, index) => {
-						return <li key={index}>{rating.Source}: {rating.Value}</li>
+						return <li key={index}><span className="error">{rating.Source}:</span> {rating.Value}</li>
 					})}
 				</ol>
 			</div>
