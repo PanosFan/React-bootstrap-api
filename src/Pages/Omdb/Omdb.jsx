@@ -6,11 +6,12 @@ class Omdb extends Component {
 
 
 	state = {
-		title : undefined,
+		title : undefined,		
 		actors : undefined,
 		country : undefined,
 		writer : undefined,
-		error : undefined
+		error : undefined,
+		ratings : []
 	}
 
 	callApi = async (e) => {
@@ -32,6 +33,7 @@ class Omdb extends Component {
 					actors : undefined,
 					country : undefined,
 					writer : undefined,
+					ratings : [],
 					error : data.Error
 		    	});
 		    }
@@ -42,6 +44,7 @@ class Omdb extends Component {
 			    	actors : data.Actors,
 			    	country : data.Country,
 			    	writer : data.Writer,
+			    	ratings : data.Ratings,
 			    	error : undefined
 			    });
 		    }
@@ -53,6 +56,7 @@ class Omdb extends Component {
 				actors : undefined,
 				country : undefined,
 				writer : undefined,
+				ratings : [],
 				error : "Please enter a proper name"
 		   	});
 		}
@@ -74,6 +78,12 @@ class Omdb extends Component {
 						<p className="error">{this.state.error}</p>
 					</div>
 				</div>
+
+				<ol>
+					{this.state.ratings.map((rating, index) => {
+						return <li key={index}>{rating.Source}: {rating.Value}</li>
+					})}
+				</ol>
 			</div>
 		);
 	}
