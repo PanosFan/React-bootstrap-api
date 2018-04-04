@@ -7,6 +7,7 @@ import Home from './Pages/Home/Home';
 import Omdb from './Pages/Omdb/Omdb';
 import Weather from './Pages/Weather/Weather';
 import Github from './Pages/Github/Github';
+import WeatherForecast from './Pages/WeatherForecast/WeatherForecast';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route exact path ="/omdb" component={Omdb} />
           <Route exact path ="/weather" component={Weather} />
           <Route exact path ="/github" component={Github} />
+          <Route exact path ="/weather-forecast" component={WeatherForecast} />
         </div>
       </Router>
     );

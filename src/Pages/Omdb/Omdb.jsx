@@ -81,11 +81,11 @@ class Omdb extends Component {
 					</div>
 				</div>
 
-				<ol>
+				<ul>
 					{this.state.ratings.map((rating, index) => {
 						return <li key={index}><span className="error">{rating.Source}:</span> {rating.Value}</li>
 					})}
-				</ol>
+				</ul>
 			</div>
 		);
 	}

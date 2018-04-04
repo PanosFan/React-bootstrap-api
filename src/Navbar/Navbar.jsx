@@ -52,7 +52,10 @@ class Navbar extends Component {
 				         </li>
 				         <li className="nav-item">
 				           <NavLink exact activeClassName="active-link" to="/omdb" >Omdb</NavLink>
-				         </li>				        
+				         </li>
+				         <li className="nav-item">
+				           <NavLink exact activeClassName="active-link" to="/weather-forecast">Forecast</NavLink>
+				         </li>
 				       </ul>          
 				    </div>
 				</nav>           
