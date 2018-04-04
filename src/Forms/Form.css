@@ -34,6 +34,30 @@ form {
 	display:none;
 }
 
+select {
+	margin-top: 10px;
+	background-color: transparent;
+	outline:none;
+	padding: 2px 10px;
+	border: solid 1px #f16051;
+	color: red;
+}
+
+select:focus {
+	outline:none;
+}
+
+select option {
+	color: red;	
+}
+
+select option {
+    background: rgba(100, 100, 100, 0.3);    
+}
+
+
+
+
 
 @media (max-width: 1024px) {
 	input {

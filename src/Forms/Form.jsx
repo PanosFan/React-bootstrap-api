@@ -13,6 +13,12 @@ class Form extends Component {
 					<input className={this.props.classCall} type="text" name="country" placeholder={this.props.placeholder2}/>	
 					<br className={this.props.classCall} />
 
+					<select name="units" className={this.props.classCall}>
+						<option value="metric">Metric</option>
+  						<option value="imperial">Imperial</option>
+					</select>
+
+					<br className={this.props.classCall} />
 					<button type="submit">Submit</button>
 				</form>
 			</div>

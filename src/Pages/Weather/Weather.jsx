@@ -13,6 +13,7 @@ class Weather extends Component {
 		humidity: undefined,
 		description: undefined,		
 		wind_speed: undefined,
+		unit :undefined,	
 		error: undefined
 	}
 
@@ -22,12 +23,11 @@ class Weather extends Component {
 		const API_KEY="3a52a27570d5f406e3d262754a68256b";
 		const city = e.target.elements.name.value;
 		const country = e.target.elements.country.value;
+		const unit = e.target.elements.units.value;
 
 		if (city && country){
-			const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${API_KEY}`);
+			const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=${unit}&appid=${API_KEY}`);
 		    const data = await api_call.json();
-
-		    console.log(data);
 
 		    if (data.cod === 200)
 		    {
@@ -35,9 +35,10 @@ class Weather extends Component {
 			    	temperature: data.main.temp,
 			    	city: data.name,
 			    	country: data.sys.country,
+			    	unit : unit,
 			    	humidity: data.main.humidity,
 			    	description: data.weather[0].description,			    	
-			    	wind_speed: data.wind.speed,
+			    	wind_speed: data.wind.speed,			    	
 			    	error: undefined
 	    		});
 	    		
@@ -48,6 +49,7 @@ class Weather extends Component {
 			    	temperature: undefined,
 			    	city: undefined,
 			    	country: undefined,
+			    	unit :undefined,
 			    	humidity: undefined,
 			    	description: undefined,			    	
 			    	wind_speed: undefined,
@@ -61,11 +63,12 @@ class Weather extends Component {
 		    	temperature: undefined,
 		    	city: undefined,
 		    	country: undefined,
+		    	unit :undefined,
 		    	humidity: undefined,
 		    	description: undefined,		    	
 		    	wind_speed: undefined,
 		    	error: "Please enter proper values"
-	    	});	
+	    	});
 		}
 
 	}
@@ -83,9 +86,9 @@ class Weather extends Component {
 					<div className="col-sm-6">
 						<Form callApi={this.callApi} placeholder1="City" placeholder2="Country"/>
 						{this.state.city && this.state.country && <p className="error">Location: <span className="apiSpan">{this.state.city}, {this.state.country}</span></p>}
-						{this.state.temperature && <p className="error">Temperate: <span className="apiSpan">{this.state.temperature} &#x2103;</span></p>}
+						{this.state.temperature && <p className="error">Temperate: <span className="apiSpan">{this.state.temperature} { this.state.unit==="metric" ? <span>&#x2103;</span> : <span>&#x2109;</span>}</span></p>}
 						{this.state.humidity && <p className="error">Humidity: <span className="apiSpan">{this.state.humidity} %</span></p>}
-						{this.state.wind_speed && <p className="error">Wind speed: <span className="apiSpan">{this.state.wind_speed} m/s</span></p>}
+						{this.state.wind_speed && <p className="error">Wind speed: <span className="apiSpan">{this.state.wind_speed} { this.state.unit==="metric" ? <span>m/s</span> : <span>m/h</span>}</span></p>}
 						{this.state.description && <p className="error">Description: <span className="apiSpan">{this.state.description}</span></p>}
 						<p className="error">{this.state.error}</p>
 					</div>

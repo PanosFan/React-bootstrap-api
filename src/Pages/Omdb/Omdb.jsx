@@ -26,7 +26,7 @@ class Omdb extends Component {
 			const api_call = await fetch(`http://www.omdbapi.com/?t=${movie}&apikey=${Api_Key}`);
 		    const data = await api_call.json();
 
-		    console.log(data);
+		    
 
 		    if (data.Response === "False")
 		    {

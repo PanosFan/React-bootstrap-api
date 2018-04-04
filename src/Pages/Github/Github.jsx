@@ -26,8 +26,7 @@ export default class Github extends React.Component {
 					client_secret: '4f1a200860a548a638615e6a660824083d4336da'
 				}
 			})
-			.then(response => {
-				console.log(response)
+			.then(response => {				
 				this.setState({
     				name: response.data.name,
     				login: response.data.login,
