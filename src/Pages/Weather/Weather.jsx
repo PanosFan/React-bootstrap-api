@@ -89,9 +89,7 @@ class Weather extends Component {
 						{this.state.description && <p className="error">Description: <span className="apiSpan">{this.state.description}</span></p>}
 						<p className="error">{this.state.error}</p>
 					</div>
-				</div>
-
-				
+				</div>				
 			</div>
 		);
 	}
