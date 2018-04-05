@@ -11,6 +11,7 @@ export default class Github extends React.Component {
 	state = {
 		error : undefined,
 		name : undefined,
+		population : undefined,
 		array : []
 	}
 
@@ -29,7 +30,8 @@ export default class Github extends React.Component {
 				this.setState({
 					error : undefined,
 					array : res.data.list,
-					name : res.data.city.name
+					name : res.data.city.name,
+					population : res.data.city.population
 				});
 			})
 			.catch(error => {
@@ -42,24 +44,11 @@ export default class Github extends React.Component {
 			this.setState({
 				error : "Please enter values",
 				name : undefined,
+				population : undefined,
 				array : []
 			});
 		}
-
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -74,15 +63,28 @@ export default class Github extends React.Component {
 				<div className="row">
 					<div className="col-sm-6">
 						<Form callApi={this.callApi} placeholder1="City" placeholder2="Country"/>
-						<p>Name {this.state.name}</p>
-						<ul>
-							{this.state.array.map((item, index) => {
-								return <li key={index}><span className="error">Average Temperature: {item.main.temp} &#x2103;</span></li>
-							})}
-						</ul>
+						{this.state.name && <p>Name: {this.state.name}</p>}
+						{this.state.population && <p>Population: {this.state.population}</p>}
 						<p className="error">{this.state.error}</p>
-					</div>
+					</div>					
 				</div>
+					
+					<div className="row">					
+						{this.state.array.map((item, index) => {
+							return (								
+								<div className="col-sm-2 kek" key={index}>
+									<span className="error">{item.dt_txt}</span> 
+									<div>Temp: {item.main.temp} &#x2103;</div>
+									<div>Min temp: {item.main.temp_min}</div>
+									<div>Max temp: {item.main.temp_max}</div>
+									<div>Description: {item.weather[0].description}</div>
+									<div>Wind: {item.wind.speed}</div>
+									<div>Humidity: {item.main.humidity}%</div>
+								</div>								
+							)	
+						})}	
+								
+					</div>
 			</div>
 		);
 	}
