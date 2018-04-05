@@ -36,6 +36,12 @@ export default class Github extends React.Component {
 			})
 			.catch(error => {
 				console.log(error)
+				this.setState({
+				error : "Location not found",
+				name : undefined,
+				population : undefined,
+				array : []
+			});
 			});
 
 		}
