@@ -10,8 +10,8 @@ class Navbar extends Component {
 	}
 
 	handleclick = () => {
-		this.setState ({
-			toggler : !this.state.toggler
+		this.setState((prevState) => {
+		  return {toggler: !prevState.toggler};
 		});
 	}
 
