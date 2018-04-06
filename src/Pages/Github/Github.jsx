@@ -43,7 +43,7 @@ export default class Github extends React.Component {
     				repos: undefined,
 					error: "Username not found"
 				});
-  			});
+  			})
 
 		}
 		else
@@ -56,21 +56,6 @@ export default class Github extends React.Component {
 				error: "Please enter a username"
 			});
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 
 

@@ -24,9 +24,7 @@ class Omdb extends Component {
 
 		if (movie){
 			const api_call = await fetch(`http://www.omdbapi.com/?t=${movie}&apikey=${Api_Key}`);
-		    const data = await api_call.json();
-
-		    
+		    const data = await api_call.json();		    
 
 		    if (data.Response === "False")
 		    {
@@ -62,7 +60,6 @@ class Omdb extends Component {
 				error : "Please enter a proper name"
 		   	});
 		}
-
 	}
 
 

@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import Form from '../../Forms/Form';
 
+import './WeatherForecast.css';
+
 export default class Github extends React.Component {
 
 
@@ -42,7 +44,7 @@ export default class Github extends React.Component {
 					population : undefined,
 					array : []
 				});
-			});
+			})
 
 		}
 		else
@@ -55,11 +57,6 @@ export default class Github extends React.Component {
 			});
 		}
 	}
-
-
-
-
-
 
 
 
