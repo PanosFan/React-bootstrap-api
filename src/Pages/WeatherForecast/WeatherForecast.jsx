@@ -21,8 +21,8 @@ export default class Github extends React.Component {
 		e.preventDefault();
 
 		const API_KEY="3a52a27570d5f406e3d262754a68256b";
-		const city = e.target.elements.name.value;
-		const country = e.target.elements.country.value;
+		const city = e.target.elements.mainName.value;
+		const country = e.target.elements.mainCountry.value;
 		const unit = e.target.elements.units.value;
 
 		if (city && country) {

@@ -7,13 +7,13 @@ class Form extends Component {
 		return (
 			<div className="Form">
 				<form onSubmit={this.props.callApi}>
-					<input type="text" name="name" placeholder={this.props.placeholder1}/>	
+					<input onChange={this.props.handleChange} type="text" name="mainName" placeholder={this.props.placeholder1}/>	
 					<br/>
 
-					<input className={this.props.classCall} type="text" name="country" placeholder={this.props.placeholder2}/>	
+					<input onChange={this.props.handleChange} className={this.props.classCall} type="text" name="mainCountry" placeholder={this.props.placeholder2}/>	
 					<br className={this.props.classCall} />
 
-					<select name="units" className={this.props.classCall}>
+					<select onChange={this.props.handleChange} name="units" className={this.props.classCall}>
 						<option value="metric">Metric</option>
   						<option value="imperial">Imperial</option>
 					</select>
