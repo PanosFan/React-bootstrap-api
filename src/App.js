@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Navbar from './Navbar/Navbar';
-
 import Home from './Pages/Home/Home';
 import Omdb from './Pages/Omdb/Omdb';
 import Weather from './Pages/Weather/Weather';
