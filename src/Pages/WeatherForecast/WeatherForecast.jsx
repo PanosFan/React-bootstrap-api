@@ -5,7 +5,7 @@ import Form from '../../Forms/Form';
 
 import './WeatherForecast.css';
 
-export default class Github extends React.Component {
+export default class WeatherForecast extends React.Component {
 
 
 
